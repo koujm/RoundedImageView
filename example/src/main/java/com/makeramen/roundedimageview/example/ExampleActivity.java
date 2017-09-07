@@ -65,14 +65,10 @@ public class ExampleActivity extends AppCompatActivity
         newFragment = RoundedFragment.getInstance(RoundedFragment.ExampleType.SELECT_CORNERS);
         break;
       case 3:
-        // picasso
-        newFragment = new PicassoFragment();
-        break;
-      case 4:
         // color
         newFragment = new ColorFragment();
         break;
-      case 5:
+      case 4:
         // background
         newFragment = RoundedFragment.getInstance(RoundedFragment.ExampleType.BACKGROUND);
         break;
