@@ -306,7 +306,11 @@ public class RoundedImageView extends ImageView {
         mBackgroundResource = 0;
       }
     }
-    return RoundedDrawable.fromDrawable(d);
+
+    if (mMutateBackground) {
+      return RoundedDrawable.fromDrawable(d);
+    }
+    return d;
   }
 
   private void updateDrawableAttrs() {
