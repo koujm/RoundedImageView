@@ -18,7 +18,6 @@ package com.makeramen.roundedimageview;
 
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -34,8 +33,8 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.widget.ImageView.ScaleType;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -126,22 +125,7 @@ public class RoundedDrawable extends Drawable {
     if (drawable instanceof BitmapDrawable) {
       return ((BitmapDrawable) drawable).getBitmap();
     }
-
-    Bitmap bitmap;
-    int width = Math.max(drawable.getIntrinsicWidth(), 2);
-    int height = Math.max(drawable.getIntrinsicHeight(), 2);
-    try {
-      bitmap = Bitmap.createBitmap(width, height, Config.ARGB_8888);
-      Canvas canvas = new Canvas(bitmap);
-      drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-      drawable.draw(canvas);
-    } catch (Exception e) {
-      e.printStackTrace();
-      Log.w(TAG, "Failed to create bitmap from drawable!");
-      bitmap = null;
-    }
-
-    return bitmap;
+    return null;
   }
 
   public Bitmap getSourceBitmap() {
